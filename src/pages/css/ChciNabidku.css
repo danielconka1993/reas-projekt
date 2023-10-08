@@ -1,0 +1,151 @@
+.chci-nabidku{
+    width: 100%;
+    min-height: calc(100vh - 81px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.chci-nabidku h1{
+    text-align: center;
+}
+/* Fáze 1 */
+.chci-nabidku form .faze1{
+
+    display: flex;
+    border: 5px solid rgb(36, 36, 36);
+    border-radius: 30px;
+}
+
+    .chci-nabidku .faze1 .faze-div{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        /* padding: 40px 20px; */
+        width: 300px;
+        height: 300px;
+        border-right: 5px solid rgb(36, 36, 36);
+    }
+    .chci-nabidku form .faze1 h2{
+        margin-bottom: 40px;
+        margin-top: 45px;
+    }
+        
+    .chci-nabidku .faze1 .faze-div-posledni{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        /* padding: 40px 20px; */
+        width: 300px;
+        height: 300px;
+    }
+
+    /* selecty */
+    .kraje-okresyFaze1 select{
+        margin-top: 45px;
+        width: 270px;
+        margin-bottom: 10px;
+        border: 3px solid rgb(0, 55, 255);
+        border-radius: 20px;
+        padding: 3px 20px;
+        font-size: 20px;
+    }
+
+/* Fáze 2 */
+.chci-nabidku form .faze2{
+    display: flex;
+    flex-direction: column;
+    
+}
+    .chci-nabidku form .faze2 .faze2-container{
+        display: flex;
+        border: 5px solid rgb(36, 36, 36);
+        border-radius: 30px;
+    }
+        .chci-nabidku .faze2 .faze-div{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            /* padding: 40px; */
+            border-right: 5px solid rgb(36, 36, 36);
+            /* width: 311.5px;
+            height: 242px; */
+            width: 300px;
+            height: 242px;
+        }    
+            .chci-nabidku form .faze2 .faze-div h2,
+            .chci-nabidku form .faze2 .faze-div-posledni h2{
+                margin-bottom: 40px;
+                margin-top: 45px;
+            }
+            .chci-nabidku form .faze2 .faze-div input,
+            .chci-nabidku .faze2 .faze-div-posledni input{
+                margin-top: 10px;
+                width: 270px;
+                margin-bottom: 10px;
+                border: 3px solid rgb(0, 55, 255);
+                border-radius: 20px;
+                padding: 3px 20px;
+                font-size: 20px;
+            }
+        .chci-nabidku .faze2 .faze-div-posledni{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            /* padding: 40px; */
+            /* width: 311.5px;
+            height: 242px; */
+            width: 300px;
+            height: 242px;
+        }
+    .chci-nabidku form .faze2 input[type="submit"]{
+        /* margin: 20px; */
+        cursor: pointer;
+        padding: 8px 15px 7px 15px;
+        cursor: pointer;
+        border: 5px solid rgb(0, 55, 255);
+        border-radius: 20px;
+        background-color: rgb(0, 55, 255);
+        color: white;
+        font-size: 20px;
+        transition: all 0.2s linear;
+        margin-top: 10px;
+    }
+
+/* Pod Form */
+.pod-Form{
+    margin: 10px 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+}
+    .pod-Form p{
+        color: red;
+        font-size: 20px;
+    }
+    /* Btn - dalši fáze */
+    .pod-Form .btn-dalsiFaze{
+        padding: 8px 15px 7px 15px;
+        cursor: pointer;
+        border: 5px solid rgb(0, 55, 255);
+        border-radius: 20px;
+        background-color: rgb(0, 55, 255);
+        color: white;
+        font-size: 20px;
+        transition: all 0.2s linear;
+    }
+    .pod-Form .btn-dalsiFaze:hover{
+        background-color: white;
+        color: rgb(0, 55, 255);
+    }
