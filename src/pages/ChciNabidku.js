@@ -27,7 +27,7 @@ const ChciNabidku = () => {
     // Regulární výraz pro kontrolu, zda vstup obsahuje pouze písmena a mezery + česka a německá abeceda
     const regex1 = /^[a-zA-Z\s\u0100-\u024F]*$/
     const regex2 = /^\+?[0-9]*$/;
-    const emailRegex = /^[a-z0-9]*@{0,1}[a-z0-9]*.{0,1}[a-z]{0,3}$/;
+    const regex3 = /^[a-zA-Z0-9._%+-]*@{0,1}[a-zA-Z0-9]*\.{0,1}[a-z]{0,5}$/;
 
     // [a-z0-9] male pismena a čisla
     //[a-zA-Z\s\u0100-\u024F] - mala a velka pismena a znaky česke a sloveske abecedy
@@ -37,14 +37,12 @@ const ChciNabidku = () => {
     // \ - se dava pred povinne znaky kdyz to hazy error
 
   if(name === "name" && !regex1.test(value)){
-    // Pokud vstup neodpovídá požadovanému formátu, neaktualizujte stav
     return
   }
   if(name === "phone" && !regex2.test(value)){
     return
   }
-  if (name === "email" && !emailRegex.test(value)) {
-    // Pokud vstup neodpovídá požadovanému formátu e-mailu, neaktualizujte stav
+  if (name === "email" && !regex3.test(value)) {
     return;
   }
     
@@ -58,7 +56,7 @@ const ChciNabidku = () => {
 
   
  // ZMENIT JMENO ---------------------
-  const handleTypeChange = (e) => {
+  const typNemovitosti = (e) => {
     setSelectedType(e.target.value)
   };
 
@@ -81,7 +79,7 @@ const ChciNabidku = () => {
 
   // BTN funkce
   const kontrolaFaze1 = () => {
-    if(selectedType === "" || selectedKraj === "" ||selectedOkres === ""){
+    if(selectedType === "" || selectedKraj === "" || selectedOkres === ""){
       setErrorFaze("Vyplňtě všechna pole")
     }
     else{
@@ -93,24 +91,51 @@ const ChciNabidku = () => {
   // BTN odeslat
   const btnSubmit = (e) => {
     e.preventDefault()
-
-    setZobrazeniFormulare(false)
+    const regex1a = /^[A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{2,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,}$/
+    const regex1b = /^[A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{2,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,}$/
+    const regex2a = /^[0-9]{9}$/;
+    const regex2b = /^\+[0-9]{12}$/;
+    const regex3 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}$/;
+    if(formData2.name === ""){
+      setErrorFaze("Zadejte Vaše jméno")
+    }
+    else if(formData2.name !== "" && !(regex1a.test(formData2.name) || regex1b.test(formData2.name))){
+      setErrorFaze("Zadejte platný formát jména")
+    }
+    else if(formData2.phone === ""){
+      setErrorFaze("Zadejte Vaše telefoní číslo")
+    }
+    else if(formData2.phone !== "" && !(regex2a.test(formData2.phone) || regex2b.test(formData2.phone))) {
+      setErrorFaze("Telefonní číslo má špatný formát");
+    } 
+    else if(formData2.email === ""){
+      setErrorFaze("Zadejte Váš E-mail")
+    }
+    else if(!regex3.test(formData2.email)){
+      setErrorFaze("E-mail má špatný formát")
+    }
+    // Dobře zadaný telefon a email
+    else{
+      setZobrazeniFormulare(false) // odeslano
     
-    setTimeout(() => {
-      //Nahození původního formuláře Fáze1
-      setZobrazeniFormulare(true)
-      setPrvniFazeForm(true)
-
-      //Nulování
-      setSelectedType("")
-      setSelectedKraj("")
-      setSelectedOkres("")
-      setFormData2({
-        name: "",
-        phone: "",
-        email: ""
-      });
-    }, 5000)
+      setTimeout(() => {
+        //Nahození původního formuláře Fáze1
+        setZobrazeniFormulare(true)
+        setPrvniFazeForm(true)
+  
+        //Nulování
+        setErrorFaze("")
+        setSelectedType("")
+        setSelectedKraj("")
+        setSelectedOkres("")
+        setFormData2({
+          name: "",
+          phone: "",
+          email: ""
+        });
+      }, 5000)
+    }
+    
     
 
   }
@@ -126,7 +151,7 @@ const ChciNabidku = () => {
       {prvniFazeForm && <div className="faze1">
           <div className="faze-div">
             <h2>Typ nemovitosti</h2>
-            <VyberNemovitosti selectedType={selectedType} handleTypeChange={handleTypeChange} />
+            <VyberNemovitosti selectedType={selectedType} typNemovitosti={typNemovitosti} />
           </div>
           <div className="faze-div">
               <h2>Vyberte kraj</h2>
@@ -167,7 +192,9 @@ const ChciNabidku = () => {
 
     {/* Skrytý formulář + potvrzení odeslání */}
     {!zobrazeniFormulare && <article className="potvrzeni">
-      <p>odeslano</p>
+
+      <h2>odeslano</h2>
+      <p>Brzy Vás kontaktujeme</p>
     </article>}
   </section>
 }

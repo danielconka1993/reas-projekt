@@ -13,7 +13,7 @@
 .chci-nabidku form .faze1{
 
     display: flex;
-    border: 5px solid rgb(36, 36, 36);
+    border: 5px solid rgb(0, 55, 255);
     border-radius: 30px;
 }
 
@@ -27,7 +27,7 @@
         /* padding: 40px 20px; */
         width: 300px;
         height: 300px;
-        border-right: 5px solid rgb(36, 36, 36);
+        border-right: 5px solid rgb(0, 55, 255);
     }
     .chci-nabidku form .faze1 h2{
         margin-bottom: 40px;
@@ -65,7 +65,7 @@
 }
     .chci-nabidku form .faze2 .faze2-container{
         display: flex;
-        border: 5px solid rgb(36, 36, 36);
+        border: 5px solid rgb(0, 55, 255);
         border-radius: 30px;
     }
         .chci-nabidku .faze2 .faze-div{
@@ -76,7 +76,7 @@
             justify-content: flex-start;
             align-items: center;
             /* padding: 40px; */
-            border-right: 5px solid rgb(36, 36, 36);
+            border-right: 5px solid rgb(0, 55, 255);
             /* width: 311.5px;
             height: 242px; */
             width: 300px;
@@ -148,4 +148,20 @@
     .pod-Form .btn-dalsiFaze:hover{
         background-color: white;
         color: rgb(0, 55, 255);
+    }
+
+/* Potvrzeni -------------------------------------------------- */
+.chci-nabidku .potvrzeni{
+    background-color: rgb(0, 55, 255);
+    border-radius: 20px;
+    width: 60%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+    .chci-nabidku .potvrzeni p{
+        margin-top: 20px;
     }
