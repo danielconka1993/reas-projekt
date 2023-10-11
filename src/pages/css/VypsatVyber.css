@@ -1,0 +1,12 @@
+.VypsatVyber{
+    width: 100%;
+    min-height: calc(100vh - 81px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+.VypsatVyber .VypsatVyber-container{
+    border: 1px solid red;
+}

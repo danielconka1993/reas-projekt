@@ -1,0 +1,27 @@
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 110px);
+}
+.error h1{
+    font-size: 100px;
+}
+.error .icon-home{
+    font-size: 100px;
+    
+}
+.error a{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    transition: all 0.2s linear;
+    border: 5px solid rgb(0, 55, 255);
+    background-color: rgb(0, 55, 255);
+    border-radius: 20px;
+}
+.error a:hover{
+    color: rgb(0, 55, 255);
+    background-color: white;
+}

@@ -3,6 +3,7 @@ import React, { useEffect, useState} from 'react';
 import VyberNemovitosti from "./form/faze1/VyberNemovitosti"
 import SeznamKraju from "./form/faze1/SeznamKraju"
 import SeznamOkresu from "./form/faze1/SeznamOkresu"
+import { projectFirestore } from "../firebase/Config"
 
 
 const ChciNabidku = () => {
@@ -89,7 +90,7 @@ const ChciNabidku = () => {
   }
 
   // BTN odeslat
-  const btnSubmit = (e) => {
+  const btnSubmit = async (e) => {
     e.preventDefault()
     const regex1a = /^[A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{2,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,}$/
     const regex1b = /^[A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{2,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,}$/
@@ -116,31 +117,57 @@ const ChciNabidku = () => {
     }
     // Dobře zadaný telefon a email
     else{
-      setZobrazeniFormulare(false) // odeslano
-    
-      setTimeout(() => {
-        //Nahození původního formuláře Fáze1
-        setZobrazeniFormulare(true)
-        setPrvniFazeForm(true)
+      // Firebase new Nabídka
+      const newChciNabidku = {
+        selectedType,
+        selectedKraj,
+        selectedOkres,
+        name: formData2.name,
+        phone: parseInt(formData2.phone),
+        email: formData2.email,
+      };
   
-        //Nulování
-        setErrorFaze("")
-        setSelectedType("")
-        setSelectedKraj("")
-        setSelectedOkres("")
-        setFormData2({
-          name: "",
-          phone: "",
-          email: ""
-        });
-      }, 5000)
+      // Firebase add 
+      try{
+        await projectFirestore.collection("chci-nabidku").doc(new Date().getTime().toString()).set(newChciNabidku);
+
+
+
+
+
+
+
+
+
+
+
+          setZobrazeniFormulare(false) // odeslano
+        
+          setTimeout(() => {
+            //Nahození původního formuláře Fáze1
+            setZobrazeniFormulare(true)
+            setPrvniFazeForm(true)
+      
+            //Nulování
+            setErrorFaze("")
+            setSelectedType("")
+            setSelectedKraj("")
+            setSelectedOkres("")
+            setFormData2({
+              name: "",
+              phone: "",
+              email: ""
+            });
+          }, 5000)
+      }
+      catch(err){
+        setErrorFaze("Nabídka nebyla přidána, kontaktujte naší firmu " + err.message)
+      }    
     }
-    
-    
-
   }
-// -----------------------------------------------------
 
+
+// -----------------------------------------------------
   return <section className="chci-nabidku">
     {/* Zobrazený formulář */}
     {zobrazeniFormulare && <article className="odesilaci-formular">
