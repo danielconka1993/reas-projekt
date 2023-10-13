@@ -117,14 +117,24 @@ const ChciNabidku = () => {
     }
     // Dobře zadaný telefon a email
     else{
+      const datum = new Date();
+      const datumFormat = new Intl.DateTimeFormat("cs-CZ", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      }).format(datum);
+
       // Firebase new Nabídka
       const newChciNabidku = {
-        selectedType,
-        selectedKraj,
-        selectedOkres,
-        name: formData2.name,
-        phone: parseInt(formData2.phone),
-        email: formData2.email,
+        Estate_type: selectedType,
+        Region: selectedKraj,
+        District: selectedOkres,
+        Fullname: formData2.name,
+        Phone: formData2.phone,
+        Email: formData2.email,
+        Date: datumFormat
       };
   
       // Firebase add 

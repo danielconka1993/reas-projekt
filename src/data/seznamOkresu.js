@@ -11,8 +11,8 @@ const seznamOkresu = [
     { id: 9, idOkresu: 'Hlavní město Praha', name: 'Praha 9' },
     { id: 10, idOkresu: 'Hlavní město Praha', name: 'Praha 10' },
     // Středočeský kraj
-    { id: 12, idOkresu: 'Středočeský kraj', name: 'Beroun' },
     { id: 11, idOkresu: 'Středočeský kraj', name: 'Benešov' },
+    { id: 12, idOkresu: 'Středočeský kraj', name: 'Beroun' },
     { id: 13, idOkresu: 'Středočeský kraj', name: 'Kladno' },
     { id: 14, idOkresu: 'Středočeský kraj', name: 'Kolín' },
     { id: 15, idOkresu: 'Středočeský kraj', name: 'Kutná Hora' },
