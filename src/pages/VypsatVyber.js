@@ -6,14 +6,17 @@ import data_seznamOkresu from "../data/seznamOkresu"
 import { projectFirestore } from "../firebase/Config"
 
 const VypsatVyber = () => {
-
+  const [inputVyhledavac, setInputVyhledavac] = useState("")
   const [selectedKrajVypis, setSelectedKrajVypis] = useState("")
   const [selectedOkresVypis, setSelectedOkresVypis] = useState("")
-  
 
 
   const [data, setData] = useState([]);
   const [error, setError] = useState("")
+  
+  const vyhledavac = (e) => {
+    setInputVyhledavac(e.target.value)
+  }
 
   const selectedKraj = (e) => {
     setSelectedKrajVypis(e.target.value)
@@ -28,45 +31,59 @@ const VypsatVyber = () => {
   // Firebase -------------------------------------------------------------------------------
 
   const fetchDataFromDatabase = async () => {
+    let collectionRef = projectFirestore.collection("chci-nabidku");
+  
+    if (selectedKrajVypis || selectedOkresVypis) {
+      // Vytvoření základního dotazu
+      collectionRef = collectionRef.where((selectedKrajVypis === "" ? "District" : "Region"), '==', (selectedKrajVypis === "" ? selectedOkresVypis : selectedKrajVypis));
+    }
 
-    const unsubscribe = projectFirestore.collection("chci-nabidku")
-                        .where((selectedKrajVypis === "" ? "District" : "Region"), '==', (selectedKrajVypis === "" ? selectedOkresVypis : selectedKrajVypis))
-                        // .where('Region', '==', selectedKrajVypis)
-                        // .where('District', '==', selectedOkresVypis)
-                        .onSnapshot( (snapshot) => {
-
-      if (snapshot.empty){
-        setError("Žádné nabídky k vypsání")
-        setData([])
+    const unsubscribe = collectionRef.onSnapshot((snapshot) => {
+      if (snapshot.empty) {
+        setError("Žádné nabídky k vypsání");
+        setData([]);
       } else {
-        let result = []
-
-        snapshot.docs.forEach( (oneNabidka) => {
-          result.push( {id: oneNabidka.id, ...oneNabidka.data()} )
-        })
-
-        setData(result)
-        setError("")
+        let result = [];
+        snapshot.docs.forEach((oneNabidka) => {
+          const data = oneNabidka.data();
+          if (inputVyhledavac) {
+            const regex = new RegExp(`.*${inputVyhledavac}.*`, 'i'); // 'i' znamená, že je ignorován rozdíl mezi malými a velkými písmeny
+            if (regex.test(data.Fullname)) {
+              result.push({ id: oneNabidka.id, ...data });
+            }
+          } else {
+            result.push({ id: oneNabidka.id, ...data });
+          }
+        });
+        setData(result);
+        setError("");
       }
-
-    }, err => setError(err.message) )
- 
-    return () => unsubscribe()
+    }, (err) => setError(err.message));
+  
+    return () => unsubscribe();
   };
+
+  
 
   // BTN Vypis
   const btnVypsat = (e) => {
     e.preventDefault()
 
-    if (selectedKrajVypis || selectedOkresVypis) {
+    if (selectedKrajVypis || selectedOkresVypis || inputVyhledavac) {
+      setData([]);
       fetchDataFromDatabase();
     }
+    else{setError("Vyberte alespoň jednu z možností vyhledání")}
   }
 
 // ´--------------------------------------------------------------------
   return <section className="VypsatVyber">
     <article className="form">
     <form>
+
+      <div>
+        <input type="text" onChange={vyhledavac} value={inputVyhledavac} />
+      </div>
       <div className="kraj">
         <select name="kraj" value={selectedKrajVypis} onChange={selectedKraj}>
           <option value="">Vyberte kraj:</option>
@@ -93,7 +110,6 @@ const VypsatVyber = () => {
                 else{
                   return <option key={oneOkres.id} value={oneOkres.name}>{oneOkres.name}</option>
                 }
-                
               })
             }
           </select>
@@ -103,12 +119,12 @@ const VypsatVyber = () => {
       {/* Error */}
       <p>{error}</p>
     </article>
-    <article className="vypsané">
+
+    <article className="vypsane-nabídky">
     <h2>Výpis nabídek</h2>
           {data.map((oneData) => {
             const {Region, Date, District, Email, Estate_type, Fullname, Phone} = oneData
-            return <div key={oneData.id}>
-              
+            return <div key={oneData.id} className="jedna-nabídka">
               <p>{Region}</p>
               <p>{District}</p>
               <p>{Email}</p>

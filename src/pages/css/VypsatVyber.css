@@ -5,8 +5,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.VypsatVyber .vypsane-nabídky{
     border: 1px solid red;
 }
-.VypsatVyber .VypsatVyber-container{
+.VypsatVyber .vypsane-nabídky .jedna-nabídka{
     border: 1px solid red;
 }
