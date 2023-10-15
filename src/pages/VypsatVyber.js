@@ -1,6 +1,6 @@
 import "./css/VypsatVyber.css"
 import { useState} from "react"
-import React from 'react';
+import React from 'react'
 import data_seznamKraju from "../data/seznamKraju"
 import data_seznamOkresu from "../data/seznamOkresu"
 import { projectFirestore } from "../firebase/Config"
@@ -12,7 +12,7 @@ const VypsatVyber = () => {
   const [selectedOkresVypis, setSelectedOkresVypis] = useState("")
 
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
   const [error, setError] = useState("")
   
   const funkceEmail = (e) => {
@@ -42,36 +42,36 @@ const VypsatVyber = () => {
   // Firebase -------------------------------------------------------------------------------
 
   const fetchDataFromDatabase = async () => {
-    let collectionRef = projectFirestore.collection("chci-nabidku");
+    let collectionRef = projectFirestore.collection("chci-nabidku")
   
     if (selectedKrajVypis || selectedOkresVypis) {
       // + Where -> Kraj / Okres
-      collectionRef = collectionRef.where((selectedKrajVypis === "" ? "District" : "Region"), '==', (selectedKrajVypis === "" ? selectedOkresVypis : selectedKrajVypis));
+      collectionRef = collectionRef.where((selectedKrajVypis === "" ? "District" : "Region"), '==', (selectedKrajVypis === "" ? selectedOkresVypis : selectedKrajVypis))
     }
 
     if(inputEmail){
-      collectionRef = collectionRef.where("Email", '==', inputEmail);
+      collectionRef = collectionRef.where("Email", '==', inputEmail)
     }
 
     const unsubscribe = collectionRef.onSnapshot((snapshot) => {
       if (snapshot.empty) {
-        setError("Žádné nabídky k vypsání");
-        setData([]);
+        setError("Žádné nabídky k vypsání")
+        setData([])
       } else {
-        let result = [];
+        let result = []
         snapshot.docs.forEach((oneNabidka) => {
-          const data = oneNabidka.data();
+          const data = oneNabidka.data()
           // Přes vyhledávač
           if (inputVyhledavac) {
-            const regex = new RegExp(`.*${inputVyhledavac}.*`, 'i'); // 'i' znamená, že je ignorován rozdíl mezi malými a velkými písmeny
+            const regex = new RegExp(`.*${inputVyhledavac}.*`, 'i') // 'i' = ignorován rozdíl mezi m. a vel. písmeny
             if (regex.test(data.Fullname)) {
-              result.push({ id: oneNabidka.id, ...data });
+              result.push({ id: oneNabidka.id, ...data })
             }
           } 
           else {
-            result.push({ id: oneNabidka.id, ...data });
+            result.push({ id: oneNabidka.id, ...data })
           }
-        });
+        })
         setData(result)
         setInputEmail("")
         setInputVyhledavac("")
@@ -79,10 +79,10 @@ const VypsatVyber = () => {
         setSelectedOkresVypis("")
         setError("")
       }
-    }, (err) => setError(err.message));
+    }, (err) => setError(err.message))
   
-    return () => unsubscribe();
-  };
+    return () => unsubscribe()
+  }
 
   
 
@@ -91,8 +91,8 @@ const VypsatVyber = () => {
     e.preventDefault()
 
     if (selectedKrajVypis || selectedOkresVypis || inputVyhledavac || inputEmail) {
-      setData([]);
-      fetchDataFromDatabase();
+      setData([])
+      fetchDataFromDatabase()
     }
     else{setError("Vyberte alespoň jednu z možností vyhledání")}
   }

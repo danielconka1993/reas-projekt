@@ -1,5 +1,5 @@
 import "./css/ChciNabidku.css"
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react'
 import VyberNemovitosti from "./form/faze1/VyberNemovitosti"
 import SeznamKraju from "./form/faze1/SeznamKraju"
 import SeznamOkresu from "./form/faze1/SeznamOkresu"
@@ -27,8 +27,8 @@ const ChciNabidku = () => {
 
     // Regulární výraz pro kontrolu, zda vstup obsahuje pouze písmena a mezery + česka a německá abeceda
     const regex1 = /^[a-zA-Z\s\u0100-\u024F]*$/
-    const regex2 = /^\+?[0-9]*$/;
-    const regex3 = /^[a-zA-Z0-9._%+-]*@{0,1}[a-zA-Z0-9]*\.{0,1}[a-z]{0,5}$/;
+    const regex2 = /^\+?[0-9]*$/
+    const regex3 = /^[a-zA-Z0-9._%+-]*@{0,1}[a-zA-Z0-9]*\.{0,1}[a-z]{0,5}$/
 
     // [a-z0-9] male pismena a čisla
     //[a-zA-Z\s\u0100-\u024F] - mala a velka pismena a znaky česke a sloveske abecedy
@@ -44,7 +44,7 @@ const ChciNabidku = () => {
     return
   }
   if (name === "email" && !regex3.test(value)) {
-    return;
+    return
   }
     
     // Aktualizujte stav formData pro daný input
@@ -59,7 +59,7 @@ const ChciNabidku = () => {
  // ZMENIT JMENO ---------------------
   const typNemovitosti = (e) => {
     setSelectedType(e.target.value)
-  };
+  }
 
   // Kraje
   const kraje = (e) => {
@@ -94,9 +94,9 @@ const ChciNabidku = () => {
     e.preventDefault()
     const regex1a = /^[A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{2,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,}$/
     const regex1b = /^[A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{2,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,} [A-ZÄÖÜßÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zäöüßáčďéěíňóřšťúůýž]{1,}$/
-    const regex2a = /^[0-9]{9}$/;
-    const regex2b = /^\+[0-9]{12}$/;
-    const regex3 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}$/;
+    const regex2a = /^[0-9]{9}$/
+    const regex2b = /^\+[0-9]{12}$/
+    const regex3 = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,5}$/
     if(formData2.name === ""){
       setErrorFaze("Zadejte Vaše jméno")
     }
@@ -107,7 +107,7 @@ const ChciNabidku = () => {
       setErrorFaze("Zadejte Vaše telefoní číslo")
     }
     else if(formData2.phone !== "" && !(regex2a.test(formData2.phone) || regex2b.test(formData2.phone))) {
-      setErrorFaze("Telefonní číslo má špatný formát");
+      setErrorFaze("Telefonní číslo má špatný formát")
     } 
     else if(formData2.email === ""){
       setErrorFaze("Zadejte Váš E-mail")
@@ -117,14 +117,14 @@ const ChciNabidku = () => {
     }
     // Dobře zadaný telefon a email
     else{
-      const datum = new Date();
+      const datum = new Date()
       const datumFormat = new Intl.DateTimeFormat("cs-CZ", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
         hour: "2-digit",
         minute: "2-digit"
-      }).format(datum);
+      }).format(datum)
 
       // Firebase new Nabídka
       const newChciNabidku = {
@@ -135,21 +135,11 @@ const ChciNabidku = () => {
         Phone: formData2.phone,
         Email: formData2.email,
         Date: datumFormat
-      };
+      }
   
       // Firebase add 
       try{
-        await projectFirestore.collection("chci-nabidku").doc(new Date().getTime().toString()).set(newChciNabidku);
-
-
-
-
-
-
-
-
-
-
+        await projectFirestore.collection("chci-nabidku").doc(new Date().getTime().toString()).set(newChciNabidku)
 
           setZobrazeniFormulare(false) // odeslano
         
@@ -167,7 +157,7 @@ const ChciNabidku = () => {
               name: "",
               phone: "",
               email: ""
-            });
+            })
           }, 5000)
       }
       catch(err){
