@@ -90,11 +90,11 @@ const VypsatVyber = () => {
   const btnVypsat = (e) => {
     e.preventDefault()
 
-    if (selectedKrajVypis || selectedOkresVypis || inputVyhledavac || inputEmail) {
+   // if (selectedKrajVypis || selectedOkresVypis || inputVyhledavac || inputEmail) {
       setData([])
       fetchDataFromDatabase()
-    }
-    else{setError("Vyberte alespoň jednu z možností vyhledání")}
+    //}
+    // else{setError("Vyberte alespoň jednu z možností vyhledání")}
   }
 
 // ´--------------------------------------------------------------------
