@@ -199,19 +199,20 @@ const ChciNabidku = () => {
               <SeznamOkresu okresy={okresy} selectedKraj={selectedKraj} selectedOkres={selectedOkres} />
           </div>
         </div>}
+
         {/* Druhá fáze */}
         {!prvniFazeForm && <div className="faze2">
           <div className="faze2-container">
             <div className="faze-div">
-                <h2>Zadejte celé jméno</h2>
+                <h2>Celé jméno</h2>
                 <input type="text" placeholder="Jméno Přijmení" name="name" value={formData2.name} onChange={inputChange} />
               </div>
               <div className="faze-div">
-                  <h2>Zadejte telefon</h2>
+                  <h2>Telefon</h2>
                   <input placeholder="tel.:"  type="text" name="phone" value={formData2.phone} onChange={inputChange} />
               </div>
               <div className="faze-div-posledni">
-                  <h2>Zadejte email</h2>
+                  <h2>E-mail</h2>
                   <input type="email" placeholder="e-mail:" name="email" value={formData2.email} onChange={inputChange} />
               </div>
             </div>

@@ -3,12 +3,276 @@
     min-height: calc(100vh - 81px);
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #cecece;
+    color: #cba328;
+}
+/*  Formulář  */
+.VypsatVyber .form{
+    margin-top: 10px;
+    border: 8px solid #cba328;
+    border-radius: 20px;
+    width: 90%;
+    /* height: 300px; */
+    background-color: #5c5346;
+    display: flex; 
     justify-content: center;
+}
+.VypsatVyber .form form{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
-.VypsatVyber .vypsane-nabídky{
-    border: 1px solid red;
+
+/* Box - 1 -------------------*/
+.VypsatVyber .form form .hledaci-box-1{
+    border-bottom: 5px solid #cba328;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+} 
+    .VypsatVyber .form form .hledaci-box-1 h2{
+        flex:1;
+        min-width: 145px;
+    }
+    .VypsatVyber .form form .hledaci-box-1 input{
+        margin: 20px;
+        flex:2;
+        min-width: 250px;
+    }
+
+
+/* Box - 2 -------------------*/
+.VypsatVyber .form form .hledaci-box-2{
+    border-bottom: 5px solid #cba328;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+    .VypsatVyber .form form .hledaci-box-2 h1{
+        margin: 10px;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .kraj-okres{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    
+    }
+        /* Kraj */
+        .VypsatVyber .form form .hledaci-box-2 .kraj-okres .kraj{
+            flex:1;
+            border-right: 5px solid #cba328;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Okres */
+        .VypsatVyber .form form .hledaci-box-2 .kraj-okres .okres{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .VypsatVyber .form form .hledaci-box-2 .kraj-okres select{
+                margin: 5px 0 30px 0;
+                border: none;
+                border-radius: 5px;
+                flex:1;
+                font-size: 16px;
+                height: 30px;
+                outline: none;
+                padding: 5px 10px;
+                width: 60%;
+                word-spacing: 5px;
+                min-width: 201px;
+            }
+            .VypsatVyber .form form .hledaci-box-2 .kraj-okres .okres select{
+                text-align: right;
+            }
+
+/* Jméno */
+    .VypsatVyber .form form .hledaci-box-2 .name-box{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .name-box input{
+        margin: 5px;
+        text-align: center;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .name-box p{
+        font-size: 12px;
+        padding-bottom: 3px;
+    }
+
+/* Box 3 -------------------*/
+.VypsatVyber .form form .submit-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+    .VypsatVyber .form form .submit-box p{
+        color: rgb(124, 0, 0);
+    }
+    /* BTN SUBMIT */
+    .btnSubmit{
+        margin: 10px;
+        background-color: #5c5346;
+        border: 5px solid #a7760c;
+        color: #cba328;
+        border-radius: 25px;
+        font-size: 20px;
+        padding: 10px 10px 10px 10px;
+        word-spacing: 5px;
+        cursor: pointer;
+        transition: all 0.2s linear;
+    }
+    .btnSubmit:hover{
+        /* color: #ffae00;
+        border: 5px solid #ffae00; */
+        color: #5c5346;
+        background-color: #cba328;
+    }
+
+/* ˇInputy */
+.VypsatVyber input[type="text"]{
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 30px;
+    outline: none;
+    padding: 5px 10px;
+    width: 60%;
+    word-spacing: 5px
+}
+
+/* ---------------------------------------- */
+/* Vypsané záznamy */
+
+.VypsatVyber .vypsane-nabídky{
+    width: 90%;
+}
+    .VypsatVyber .vypsane-nabídky h2{
+        text-align: center;
+        margin: 20px;
+        color: #474036;
+    }
 .VypsatVyber .vypsane-nabídky .jedna-nabídka{
-    border: 1px solid red;
+    border: 8px solid #cba328;
+    border-radius: 20px;
+    background-color: #5c5346;
+    padding: 25px 25px 5px 25px;
+    margin: 10px 0;
+}
+    .vypsane-nabídky .jedna-nabídka p{
+        padding: 5px 0;
+        font-size: 20px;
+    }
+    .vypsane-nabídky .jedna-nabídka h3{
+        font-size: 25px;
+        color: #ffb30e;
+    }
+    .vypsane-nabídky .jedna-nabídka .info{
+        min-width: 125px;
+        color: #b38219;
+        font-size: 16px;
+    }
+    .vypsane-nabídky .jedna-nabídka .jedna-nabidka-box{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .vypsane-nabídky .jedna-nabídka .typ-box,
+    .vypsane-nabídky .jedna-nabídka .misto,
+    .vypsane-nabídky .jedna-nabídka .kontakt{
+        display: flex;
+        align-items: center;
+    }
+        .vypsane-nabídky .jedna-nabídka .misto .kraj,
+        .vypsane-nabídky .jedna-nabídka .misto .okres,
+        .vypsane-nabídky .jedna-nabídka .kontakt .email, 
+        .vypsane-nabídky .jedna-nabídka .kontakt .telefon{
+            /* flex: 1; */
+            width: 300px;
+        }
+        
+    .vypsane-nabídky .jedna-nabídka .datum{
+        font-size: 12px;
+        text-align: right;
+        padding: 0;
+    }
+
+@media(max-width:880px){
+    .VypsatVyber .form form{
+        width: 100%;
+        padding: 5px;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .kraj-okres select{
+        width: 95%;
+    }
+    .vypsane-nabídky .jedna-nabídka .typ-box, .vypsane-nabídky .jedna-nabídka .misto, .vypsane-nabídky .jedna-nabídka .kontakt{
+        flex-wrap: wrap
+    }
+    .VypsatVyber .vypsane-nabídky .jedna-nabidka-box{
+        flex-direction: column;
+    }
+    .vypsane-nabídky .jedna-nabídka .misto .kraj,
+        .vypsane-nabídky .jedna-nabídka .misto .okres,
+        .vypsane-nabídky .jedna-nabídka .kontakt .email, 
+        .vypsane-nabídky .jedna-nabídka .kontakt .telefon{
+            width: auto;
+        }
+}
+@media(max-width:525px){
+    .VypsatVyber .form form .hledaci-box-1{
+        text-align: center;
+    }
+    .VypsatVyber .form form .hledaci-box-1 h2{
+        margin-top: 10px;
+    }
+    .VypsatVyber .form form .hledaci-box-1 input{
+        width: 95%;
+        margin: 20px 0;
+        text-align: center;
+        font-size: 20px;
+    }
+
+/* Box 2 */
+    .VypsatVyber .form form .hledaci-box-2 .kraj-okres{
+        flex-direction: column;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .kraj-okres .kraj{
+        border: none;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .kraj-okres select{
+        font-size: 20px;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .kraj-okres .okres h2{
+        border-top: 8px solid #cba328;
+        padding-top: 20px;
+        width: 75%;
+        text-align: center;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .kraj-okres .okres select{
+        text-align: left;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .name-box{
+        width: 100%;
+    }
+    .VypsatVyber .form form .hledaci-box-2 .name-box input{
+        width: 95%;
+        font-size: 20px;
+    }
 }

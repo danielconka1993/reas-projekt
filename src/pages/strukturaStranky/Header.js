@@ -6,7 +6,6 @@ const Header = () => {
     <article className="nav-menu">
     <nav>
           <ul>
-            <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/chci-nabidku">Chci Nabídku</NavLink></li>
             <li><NavLink to="/vypsat-nabidky">Vypsat Nabídky</NavLink></li>
           </ul>
