@@ -182,6 +182,24 @@
             background-color: #cba328;
         }
 
+/* Odeslání potvrzeno */
+.chci-nabidku .potvrzeni{
+    width: 60%;
+    height: 60vh;
+    background-color: #cba328;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .chci-nabidku .potvrzeni h2{
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+    .chci-nabidku .potvrzeni p{
+        font-size: 20px;
+    }
 
 @media(max-width:880px){
     
