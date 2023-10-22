@@ -1,22 +1,22 @@
-.chci-nabidku .faze1 .vyberNemovitosti{
-    display: flex;
-    flex-direction: column;
+.chci-nabidku .faze1 .vyberNemovitosti {
+  display: flex;
+  flex-direction: column;
 }
 
-.radio{
-    display: flex;
-    justify-content: space-between;
-    margin: 5px;
-    border: 3px solid #a7760c;
-    border-radius: 20px;
-    padding: 3px 40px;
+.radio {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  border: 3px solid #a7760c;
+  border-radius: 20px;
+  padding: 3px 40px;
 }
 
-.radio input{
-    width: 20px;
+.radio input {
+  width: 20px;
 }
-.radio label{
-    margin-right: 20px;
-    font-size: 20px;
-    width: 80px;
+.radio label {
+  margin-right: 20px;
+  font-size: 20px;
+  width: 80px;
 }

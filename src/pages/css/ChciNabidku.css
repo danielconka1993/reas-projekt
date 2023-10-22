@@ -1,230 +1,223 @@
-.chci-nabidku{
-    width: 100%;
-    min-height: calc(100vh - 81px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #cecece;
+.chci-nabidku {
+  width: 100%;
+  min-height: calc(100vh - 81px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #cecece;
 }
-.chci-nabidku h1{
-    color: #474036;
-    font-size: 25px;
+.chci-nabidku h1 {
+  color: #474036;
+  font-size: 25px;
 }
-.chci-nabidku .odesilaci-formular{
-    width: 100%;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
+.chci-nabidku .odesilaci-formular {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.chci-nabidku form{
-    margin-top: 10px;
-    border: 8px solid #cba328;
-    border-radius: 20px;
-    width: 90%;
-    height: 250px;
-    background-color: #5c5346;
-    display: flex; 
-    justify-content: center;
-    /* padding: 20px; */
+.chci-nabidku form {
+  margin-top: 10px;
+  border: 8px solid #cba328;
+  border-radius: 20px;
+  width: 90%;
+  height: 250px;
+  background-color: #5c5346;
+  display: flex;
+  justify-content: center;
+  /* padding: 20px; */
 }
-.chci-nabidku form .faze1{
-    width: 100%;
-    display: flex; 
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: #cba328;
+.chci-nabidku form .faze1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #cba328;
 }
-.chci-nabidku form .faze1 .faze-div{
-    width: 33.33%;
-    border-right: 5px solid #cba328;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
+.chci-nabidku form .faze1 .faze-div {
+  width: 33.33%;
+  border-right: 5px solid #cba328;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
 }
-.chci-nabidku form .faze1 .faze-div-posledni{
-    width: 33.33%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
+.chci-nabidku form .faze1 .faze-div-posledni {
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
 }
-    .chci-nabidku form .faze1 h2{
-        width: 100%;
-        margin-top: 20px;
-        text-align: center;
-    }
+.chci-nabidku form .faze1 h2 {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
 
-    /* toto CSS je pro komponenty SeznamKraju + SeznamOkresu */
-.chci-nabidku form .faze1 .kraje-okresyFaze1{
-    min-width: 300px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+/* toto CSS je pro komponenty SeznamKraju + SeznamOkresu */
+.chci-nabidku form .faze1 .kraje-okresyFaze1 {
+  min-width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-    .chci-nabidku form .faze1 select{
-        margin: 5px 0 13px 0;
-        border: none;
-        border-radius: 5px;
-        flex:0.8;
-        font-size: 16px;
-        height: 30px;
-        outline: none;
-        padding: 5px 10px;
-        transition: box-shadow .2s linear;
-        width: 60%;
-        word-spacing: 5px;
-    }
-
-
-
-
+.chci-nabidku form .faze1 select {
+  margin: 5px 0 13px 0;
+  border: none;
+  border-radius: 5px;
+  flex: 0.8;
+  font-size: 16px;
+  height: 30px;
+  outline: none;
+  padding: 5px 10px;
+  transition: box-shadow 0.2s linear;
+  width: 60%;
+  word-spacing: 5px;
+}
 
 /* Fáze 2 -------------------------------- */
-.chci-nabidku form .faze2{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    color: #cba328;
+.chci-nabidku form .faze2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #cba328;
 }
-.chci-nabidku form .faze2 .faze2-container{
-    width: 100%;
-    display: flex;
+.chci-nabidku form .faze2 .faze2-container {
+  width: 100%;
+  display: flex;
 }
-.chci-nabidku form .faze2 .faze2-container .faze-div{
-    width: 33.33%;
-    border-right: 5px solid #cba328;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 22px 20px;
-    height: 192px;
+.chci-nabidku form .faze2 .faze2-container .faze-div {
+  width: 33.33%;
+  border-right: 5px solid #cba328;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 22px 20px;
+  height: 192px;
 }
-.chci-nabidku .faze2 .faze2-container .faze-div-posledni{
-    width: 33.33%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 22px 20px;
-
+.chci-nabidku .faze2 .faze2-container .faze-div-posledni {
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 22px 20px;
 }
-.chci-nabidku .faze2 .faze2-container h2{
-    margin-top: 20px;
+.chci-nabidku .faze2 .faze2-container h2 {
+  margin-top: 20px;
 }
 .chci-nabidku .faze2 .faze2-container input[type="text"],
-.chci-nabidku .faze2 .faze2-container input[type="email"]{
-    border: none;
-    border-radius: 5px;
-    width: 105%;
-    font-size: 18px;
-    height: 30px;
-    outline: none;
-    padding: 5px 10px;
-    transition: box-shadow .2s linear;
-    word-spacing: 5px;
-    margin-top: 50px;
+.chci-nabidku .faze2 .faze2-container input[type="email"] {
+  border: none;
+  border-radius: 5px;
+  width: 105%;
+  font-size: 18px;
+  height: 30px;
+  outline: none;
+  padding: 5px 10px;
+  transition: box-shadow 0.2s linear;
+  word-spacing: 5px;
+  margin-top: 50px;
 }
-.chci-nabidku .faze2 input[type="submit"]{
-    padding: 7px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: #a7760c;
-    border: none;
-    font-weight: bolder;
-    border-top: 5px solid #cba328;
-    color: #5c5346;
-    font-size: 20px;
-    word-spacing: 5px;
-    cursor: pointer;
-    transition: all 0.2s linear;
+.chci-nabidku .faze2 input[type="submit"] {
+  padding: 7px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #a7760c;
+  border: none;
+  font-weight: bolder;
+  border-top: 5px solid #cba328;
+  color: #5c5346;
+  font-size: 20px;
+  word-spacing: 5px;
+  cursor: pointer;
+  transition: all 0.2s linear;
 }
-    .chci-nabidku .faze2 input[type="submit"]:hover{
-        background-color: #5c5346;
-        color:#cba328;
-    }
+.chci-nabidku .faze2 input[type="submit"]:hover {
+  background-color: #5c5346;
+  color: #cba328;
+}
 
 /* Spodek btn + error- -------------------------- */
-.chci-nabidku .pod-Form{
-    width: 85%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px;
+.chci-nabidku .pod-Form {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
 }
-    .chci-nabidku .pod-Form p{
-        color: rgb(124, 0, 0);
-        font-size: 25px;
-    }
-    .chci-nabidku .pod-Form .btn-dalsiFaze{
-        background-color: #5c5346;
-        border: 5px solid #a7760c;
-        color: #cba328;
-        border-radius: 25px;
-        font-size: 20px;
-        padding: 10px 30px;
-        word-spacing: 5px;
-        cursor: pointer;
-        transition: all 0.2s linear;
-    }
-        .chci-nabidku .pod-Form .btn-dalsiFaze:hover{
-            color: #5c5346;
-            background-color: #cba328;
-        }
+.chci-nabidku .pod-Form p {
+  color: rgb(124, 0, 0);
+  font-size: 25px;
+}
+.chci-nabidku .pod-Form .btn-dalsiFaze {
+  background-color: #5c5346;
+  border: 5px solid #a7760c;
+  color: #cba328;
+  border-radius: 25px;
+  font-size: 20px;
+  padding: 10px 30px;
+  word-spacing: 5px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.chci-nabidku .pod-Form .btn-dalsiFaze:hover {
+  color: #5c5346;
+  background-color: #cba328;
+}
 
 /* Odeslání potvrzeno */
-.chci-nabidku .potvrzeni{
-    width: 60%;
-    height: 60vh;
-    background-color: #cba328;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.chci-nabidku .potvrzeni {
+  width: 60%;
+  height: 60vh;
+  background-color: #cba328;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-    .chci-nabidku .potvrzeni h2{
-        font-size: 35px;
-        margin-bottom: 20px;
-    }
-    .chci-nabidku .potvrzeni p{
-        font-size: 20px;
-    }
+.chci-nabidku .potvrzeni h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.chci-nabidku .potvrzeni p {
+  font-size: 20px;
+}
 
-@media(max-width:880px){
-    
-    .chci-nabidku h1{
-        text-align: center;
-        margin-top: 30px;
-    }
-    .chci-nabidku form{
-        height: auto;
-    }
-    /* 1 a 2 - faze */
-    .chci-nabidku form .faze1,
-    .chci-nabidku form .faze2-container{
-        flex-direction: column;
-    }
-    .chci-nabidku form .faze1 .faze-div,
-    .chci-nabidku form .faze2 .faze2-container .faze-div{
-        width: 100%;
-        border: none;
-        border-bottom: 5px solid #cba328;
-        height: 230px;
-    }
-    .chci-nabidku form .faze1 .faze-div-posledni,
-    .chci-nabidku form .faze2 .faze2-container .faze-div-posledni{
-        width: 100%;
-        height: 230px
-    }
+@media (max-width: 880px) {
+  .chci-nabidku h1 {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .chci-nabidku form {
+    height: auto;
+  }
+  /* 1 a 2 - faze */
+  .chci-nabidku form .faze1,
+  .chci-nabidku form .faze2-container {
+    flex-direction: column;
+  }
+  .chci-nabidku form .faze1 .faze-div,
+  .chci-nabidku form .faze2 .faze2-container .faze-div {
+    width: 100%;
+    border: none;
+    border-bottom: 5px solid #cba328;
+    height: 230px;
+  }
+  .chci-nabidku form .faze1 .faze-div-posledni,
+  .chci-nabidku form .faze2 .faze2-container .faze-div-posledni {
+    width: 100%;
+    height: 230px;
+  }
 }

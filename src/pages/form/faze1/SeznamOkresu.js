@@ -1,16 +1,16 @@
-import data_seznamOkresu from "../../../data/seznamOkresu"
-import { useState, useEffect } from "react"
+import data_seznamOkresu from "../../../data/seznamOkresu";
+import { useState, useEffect } from "react";
 
 const SeznamOkresu = ({ okresy, selectedKraj, selectedOkres }) => {
   const [seznamOkresu, setSeznamOkresu] = useState([]);
 
-  // Filtrování seznamu okresů 
+  // Filtrování seznamu okresů
   useEffect(() => {
     const seznamOkresu_filter = data_seznamOkresu.filter((oneOkres) => {
       return selectedKraj === oneOkres.idOkresu;
     });
     setSeznamOkresu(seznamOkresu_filter);
-  }, [selectedKraj]); 
+  }, [selectedKraj]);
 
   return (
     <section className="kraje-okresyFaze1">

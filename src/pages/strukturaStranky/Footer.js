@@ -1,7 +1,7 @@
-import "./css/Footer.css"
+import "./css/Footer.css";
 
 const Footer = () => {
-  return <p>Reas @2023</p>
-}
+  return <p>Reality @2023</p>;
+};
 
-export default Footer
+export default Footer;
